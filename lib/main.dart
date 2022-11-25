@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import './screens/HomeScreen.dart';
+import './screens/introScreen.dart';
+import './screens/newPwScreen.dart';
 import './screens/forgotPwScreen.dart';
 import './screens/sentOTPScreen.dart';
 import './screens/registerScreen.dart';
@@ -71,6 +74,9 @@ class MyApp extends StatelessWidget {
         RegisterScreen.routeName: (context) => RegisterScreen(),
         ForgotPwScreen.routeName: (context) => ForgotPwScreen(),
         SentOTPScreen.routeName: (context) => SentOTPScreen(),
+        NewPwScreen.routeName: (context) => NewPwScreen(),
+        IntroScreen.routeName: (context) => IntroScreen(),
+        HomeScreen.routeName: (context) => HomeScreen(),
       },
     );
   }
