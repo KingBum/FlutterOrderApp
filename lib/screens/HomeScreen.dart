@@ -292,7 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
               bottom: 0,
               left: 0,
               child: CustomNavBar(
-                home: true, more: true, profile: true, offer: true, menu: true,
+                home: true, more: false, profile: false, offer: false, menu: false,
               )),
         ],
       ),

@@ -1,4 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/screens/aboutScreen.dart';
+import 'package:untitled1/screens/changeAddressScreen.dart';
+import 'package:untitled1/screens/checkoutScreen.dart';
+import 'package:untitled1/screens/dessertScreen.dart';
+import 'package:untitled1/screens/inboxScreen.dart';
+import 'package:untitled1/screens/menuScreen.dart';
+import 'package:untitled1/screens/moreScreen.dart';
+import 'package:untitled1/screens/myOrderScreen.dart';
+import 'package:untitled1/screens/notificationScreen.dart';
+import 'package:untitled1/screens/offerScreen.dart';
+import 'package:untitled1/screens/paymentScreen.dart';
+import 'package:untitled1/screens/profileScreen.dart';
+import './screens/individualItem.dart';
 import './screens/HomeScreen.dart';
 import './screens/introScreen.dart';
 import './screens/newPwScreen.dart';
@@ -77,6 +90,19 @@ class MyApp extends StatelessWidget {
         NewPwScreen.routeName: (context) => NewPwScreen(),
         IntroScreen.routeName: (context) => IntroScreen(),
         HomeScreen.routeName: (context) => HomeScreen(),
+        DeltailItem.routeName: (context) => DeltailItem(),
+        ProfileScreen.routeName: (context) => ProfileScreen(),
+        AboutScreen.routeName: (context) => AboutScreen(),
+        PaymentScreen.routeName: (context) => PaymentScreen(),
+        InboxScreen.routeName: (context) => InboxScreen(),
+        NotificationScreen.routeName: (context) => NotificationScreen(),
+        MyOrderScreen.routeName: (context) => MyOrderScreen(),
+        CheckoutScreen.routeName: (context) => CheckoutScreen(),
+        ChangeAddressScreen.routeName: (context) => ChangeAddressScreen(),
+        DessertScreen.routeName: (context) => DessertScreen(),
+        MenuScreen.routeName: (context) => MenuScreen(),
+        MoreScreen.routeName: (context) => MoreScreen(),
+        OfferScreen.routeName: (context) => OfferScreen(),
       },
     );
   }
