@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../const/colors.dart';
 import '../utils/helper.dart';
 import '../widgets/customNavBar.dart';
-import '../widgets/customTextInput.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -34,7 +33,7 @@ class ProfileScreen extends StatelessWidget {
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       ClipOval(
@@ -64,7 +63,7 @@ class ProfileScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -73,94 +72,212 @@ class ProfileScreen extends StatelessWidget {
                           Image.asset(
                             Helper.getAssetName("edit_filled.png", "virtual"),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
-                          Text(
+                          const Text(
                             "Edit Profile",
                             style: TextStyle(color: AppColor.orange),
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
                         "Hi there Emilia!",
                         style: Helper.getTheme(context).headline4?.copyWith(
-                          color: AppColor.primary,
-                        ),
+                              color: AppColor.primary,
+                            ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
-                      Text("Sign Out"),
-                      SizedBox(
+                      const Text("Sign Out"),
+                      const SizedBox(
                         height: 40,
                       ),
-                      CustomFormImput(
-                        label: "Name",
-                        value: "Emilia Clarke",
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CustomFormImput(
-                        label: "Email",
-                        value: "emiliaclarke@email.com",
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CustomFormImput(
-                        label: "Mobile No",
-                        value: "emiliaclarke@email.com",
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CustomFormImput(
-                        label: "Address",
-                        value: "No 23, 6th Lane, Colombo 03",
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CustomFormImput(
-                        label: "Password",
-                        value: "Emilia Clarke",
-                        isPassword: true,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CustomFormImput(
-                        label: "Confirm Password",
-                        value: "Emilia Clarke",
-                        isPassword: true,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        height: 50,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text("Save"),
+                      Column(children: [
+                        Row(
+                          children: const [
+                            Icon(
+                              Icons.location_on,
+                              color: Color(0xFF3FC979),
+                            ),
+                            SizedBox(
+                              width: 15.0,
+                            ),
+                            Text(
+                              "Change location",
+                              style: TextStyle(
+                                  fontSize: 20.0, color: Colors.black),
+                            ),
+                            SizedBox(width: 145.0,),
+                            Icon(
+                              Icons.navigate_next_outlined,
+                              color: Color(0xFF3FC979),
+                            ),
+                          ],
                         ),
-                      )
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        const SizedBox(
+                            height: 2.0,
+                            width: 1000,
+                            child: ColoredBox(color: Color(0xE9ECEEFF)))
+                      ]),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Column(children: [
+                        Row(
+                          children: const [
+                            Icon(
+                              Icons.favorite,
+                              color: Color(0xFF3FC979),
+                            ),
+                            SizedBox(
+                              width: 15.0,
+                            ),
+                            Text(
+                              "Favorite Items",
+                              style: TextStyle(
+                                  fontSize: 20.0, color: Colors.black),
+                            ),
+                            SizedBox(width: 160.0,),
+                            Icon(
+                              Icons.navigate_next_outlined,
+                              color: Color(0xFF3FC979),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        const SizedBox(
+                            height: 2.0,
+                            width: 1000,
+                            child: ColoredBox(color: Color(0xE9ECEEFF)))
+                      ]),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Column(children: [
+                        Row(
+                          children: const [
+                            Icon(
+                              Icons.history,
+                              color: Color(0xFF3FC979),
+                            ),
+                            SizedBox(
+                              width: 15.0,
+                            ),
+                            Text(
+                              "Order History",
+                              style: TextStyle(
+                                  fontSize: 20.0, color: Colors.black),
+                            ),
+                            SizedBox(width: 165.0,),
+                            Icon(
+                              Icons.navigate_next_outlined,
+                              color: Color(0xFF3FC979),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        const SizedBox(
+                            height: 2.0,
+                            width: 1000,
+                            child: ColoredBox(color: Color(0xE9ECEEFF)))
+                      ]),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Column(children: [
+                        Row(
+                          children: const [
+                            Icon(
+                              Icons.notifications_active,
+                              color: Color(0xFF3FC979),
+                            ),
+                            SizedBox(
+                              width: 15.0,
+                            ),
+                            Text(
+                              "Notifications",
+                              style: TextStyle(
+                                  fontSize: 20.0, color: Colors.black),
+                            ),
+                            SizedBox(width: 175.0, ),
+                            Icon(
+                              Icons.navigate_next_outlined,
+                              color: Color(0xFF3FC979),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        const SizedBox(
+                            height: 2.0,
+                            width: 1000,
+                            child: ColoredBox(color: Color(0xE9ECEEFF)))
+                      ]),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Column(children: [
+                        Row(
+                          children: const [
+                            Icon(
+                              Icons.output,
+                              color: Color(0xFF3FC979),
+                            ),
+                            SizedBox(
+                              width: 15.0,
+                            ),
+                            Text(
+                              "Sign Out",
+                              style: TextStyle(
+                                  fontSize: 20.0, color: Colors.black),
+                            ),
+                            SizedBox(width: 210.0,),
+                            Icon(
+                              Icons.navigate_next_outlined,
+                              color: Color(0xFF3FC979),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        const SizedBox(
+                            height: 2.0,
+                            width: 1000,
+                            child: ColoredBox(color: Color(0xE9ECEEFF)))
+                      ]),
+                      const SizedBox(
+                        height: 20,
+                      ),
+
                     ],
                   ),
                 ),
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             bottom: 0,
             left: 0,
             child: CustomNavBar(
-              home: false, more: false, profile: true, offer: false, menu: false,
+              home: false,
+              more: false,
+              profile: true,
+              offer: false,
+              menu: false,
             ),
           ),
         ],
@@ -168,8 +285,6 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
-
 
 class CustomFormImput extends StatelessWidget {
   const CustomFormImput({
@@ -192,7 +307,7 @@ class CustomFormImput extends StatelessWidget {
       width: double.infinity,
       height: 50,
       padding: const EdgeInsets.only(left: 40),
-      decoration: ShapeDecoration(
+      decoration: const ShapeDecoration(
         shape: StadiumBorder(),
         color: AppColor.placeholderBg,
       ),
@@ -207,7 +322,7 @@ class CustomFormImput extends StatelessWidget {
         ),
         obscureText: _isPassword,
         initialValue: _value,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 14,
         ),
       ),
