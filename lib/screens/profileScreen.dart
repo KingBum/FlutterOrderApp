@@ -28,12 +28,9 @@ class ProfileScreen extends StatelessWidget {
                             "Profile",
                             style: Helper.getTheme(context).headline5,
                           ),
-                          Image.asset(
-                            Helper.getAssetName("cart.png", "virtual"),
-                          )
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 20,
                       ),
                       ClipOval(
@@ -63,7 +60,7 @@ class ProfileScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -72,221 +69,94 @@ class ProfileScreen extends StatelessWidget {
                           Image.asset(
                             Helper.getAssetName("edit_filled.png", "virtual"),
                           ),
-                          const SizedBox(
+                          SizedBox(
                             width: 5,
                           ),
-                          const Text(
-                            "Edit Profile",
+                          Text(
+                            "Save Edit Profile",
                             style: TextStyle(color: AppColor.orange),
                           ),
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 10,
                       ),
                       Text(
                         "Hi there Emilia!",
                         style: Helper.getTheme(context).headline4?.copyWith(
-                              color: AppColor.primary,
-                            ),
+                          color: AppColor.primary,
+                        ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 5,
                       ),
-                      const Text("Sign Out"),
-                      const SizedBox(
+                      Text("Sign Out"),
+                      SizedBox(
                         height: 40,
                       ),
-                      Column(children: [
-                        Row(
-                          children: const [
-                            Icon(
-                              Icons.location_on,
-                              color: Color(0xFF3FC979),
-                            ),
-                            SizedBox(
-                              width: 15.0,
-                            ),
-                            Text(
-                              "Change location",
-                              style: TextStyle(
-                                  fontSize: 20.0, color: Colors.black),
-                            ),
-                            SizedBox(
-                              width: 145.0,
-                            ),
-                            Icon(
-                              Icons.navigate_next_outlined,
-                              color: Color(0xFF3FC979),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20.0,
-                        ),
-                        const SizedBox(
-                            height: 2.0,
-                            width: 1000,
-                            child: ColoredBox(color: Color(0xE9ECEEFF)))
-                      ]),
-                      const SizedBox(
-                        height: 40,
+                      CustomFormImput(
+                        label: "Name",
+                        value: "Emilia Clarke",
                       ),
-                      Column(children: [
-                        Row(
-                          children: const [
-                            Icon(
-                              Icons.favorite,
-                              color: Color(0xFF3FC979),
-                            ),
-                            SizedBox(
-                              width: 15.0,
-                            ),
-                            Text(
-                              "Favorite Items",
-                              style: TextStyle(
-                                  fontSize: 20.0, color: Colors.black),
-                            ),
-                            SizedBox(
-                              width: 160.0,
-                            ),
-                            Icon(
-                              Icons.navigate_next_outlined,
-                              color: Color(0xFF3FC979),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20.0,
-                        ),
-                        const SizedBox(
-                            height: 2.0,
-                            width: 1000,
-                            child: ColoredBox(color: Color(0xE9ECEEFF)))
-                      ]),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      Column(children: [
-                        Row(
-                          children: const [
-                            Icon(
-                              Icons.history,
-                              color: Color(0xFF3FC979),
-                            ),
-                            SizedBox(
-                              width: 15.0,
-                            ),
-                            Text(
-                              "Order History",
-                              style: TextStyle(
-                                  fontSize: 20.0, color: Colors.black),
-                            ),
-                            SizedBox(
-                              width: 165.0,
-                            ),
-                            Icon(
-                              Icons.navigate_next_outlined,
-                              color: Color(0xFF3FC979),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20.0,
-                        ),
-                        const SizedBox(
-                            height: 2.0,
-                            width: 1000,
-                            child: ColoredBox(color: Color(0xE9ECEEFF)))
-                      ]),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      Column(children: [
-                        Row(
-                          children: const [
-                            Icon(
-                              Icons.notifications_active,
-                              color: Color(0xFF3FC979),
-                            ),
-                            SizedBox(
-                              width: 15.0,
-                            ),
-                            Text(
-                              "Notifications",
-                              style: TextStyle(
-                                  fontSize: 20.0, color: Colors.black),
-                            ),
-                            SizedBox(
-                              width: 175.0,
-                            ),
-                            Icon(
-                              Icons.navigate_next_outlined,
-                              color: Color(0xFF3FC979),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20.0,
-                        ),
-                        const SizedBox(
-                            height: 2.0,
-                            width: 1000,
-                            child: ColoredBox(color: Color(0xE9ECEEFF)))
-                      ]),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      Column(children: [
-                        Row(
-                          children: const [
-                            Icon(
-                              Icons.output,
-                              color: Color(0xFF3FC979),
-                            ),
-                            SizedBox(
-                              width: 15.0,
-                            ),
-                            Text(
-                              "Sign Out",
-                              style: TextStyle(
-                                  fontSize: 20.0, color: Colors.black),
-                            ),
-                            SizedBox(
-                              width: 210.0,
-                            ),
-                            Icon(
-                              Icons.navigate_next_outlined,
-                              color: Color(0xFF3FC979),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20.0,
-                        ),
-                        const SizedBox(
-                            height: 2.0,
-                            width: 1000,
-                            child: ColoredBox(color: Color(0xE9ECEEFF)))
-                      ]),
-                      const SizedBox(
+                      SizedBox(
                         height: 20,
                       ),
+                      CustomFormImput(
+                        label: "Email",
+                        value: "emiliaclarke@email.com",
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      CustomFormImput(
+                        label: "Mobile No",
+                        value: "0708076323",
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      CustomFormImput(
+                        label: "Address",
+                        value: "No 23, 6th Lane, Colombo 03",
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      CustomFormImput(
+                        label: "Password",
+                        value: "Emilia Clarke",
+                        isPassword: true,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      CustomFormImput(
+                        label: "Confirm Password",
+                        value: "Emilia Clarke",
+                        isPassword: true,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        height: 50,
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text("Save"),
+                        ),
+                      )
                     ],
                   ),
                 ),
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             bottom: 0,
             left: 0,
             child: CustomNavBar(
-              home: false,
-              more: false,
-              profile: true,
-              offer: false,
-              menu: false,
+              home: false, more: false, profile: true, offer: false, menu: false,
             ),
           ),
         ],

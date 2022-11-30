@@ -11,18 +11,23 @@ class LandingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFF3FC979),
         body: Container(
           width: Helper.getScreenWidth(context),
           height: Helper.getScreenHeight(context),
-          child: Stack(
+          decoration: BoxDecoration(color: AppColor.orange),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                margin: const EdgeInsets.only(top: 200.0, left: 120.0),
-                // alignment: Alignment.center,
+              Align(
+                alignment: Alignment.center,
                 child: Image.asset(
                   Helper.getAssetName("logo.png", "virtual"),
+                  fit: BoxFit.fill,
                 ),
+              ),
+              SizedBox(
+                height: 30,
               ),
               Align(
                 alignment: Alignment.center,
@@ -49,12 +54,24 @@ class LandingScreen extends StatelessWidget {
                         ),
                       ),
                       const Spacer(
-                        flex: 2,
+                        flex: 1,
                       ),
                       SizedBox(
                         width: double.infinity,
                         height: 50,
                         child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor:
+                            MaterialStateProperty.all(Colors.white),
+                            foregroundColor:
+                            MaterialStateProperty.all(AppColor.orange),
+                            shape: MaterialStateProperty.all(
+                              const StadiumBorder(
+                                side: BorderSide(
+                                    color: AppColor.orange, width: 1.5),
+                              ),
+                            ),
+                          ),
                           onPressed: () {
                             Navigator.of(context)
                                 .pushReplacementNamed(LoginScreen.routeName);

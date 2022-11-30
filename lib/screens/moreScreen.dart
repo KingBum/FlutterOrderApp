@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/widgets/customCart.dart';
 import '../const/colors.dart';
 import '../screens/aboutScreen.dart';
 import '../screens/inboxScreen.dart';
@@ -30,9 +31,6 @@ class MoreScreen extends StatelessWidget {
                       Text(
                         "More",
                         style: Helper.getTheme(context).headline5,
-                      ),
-                      Image.asset(
-                        Helper.getAssetName("cart.png", "virtual"),
                       ),
                     ],
                   ),
