@@ -112,7 +112,9 @@ class ProfileScreen extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 20.0, color: Colors.black),
                             ),
-                            SizedBox(width: 145.0,),
+                            SizedBox(
+                              width: 145.0,
+                            ),
                             Icon(
                               Icons.navigate_next_outlined,
                               color: Color(0xFF3FC979),
@@ -145,7 +147,9 @@ class ProfileScreen extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 20.0, color: Colors.black),
                             ),
-                            SizedBox(width: 160.0,),
+                            SizedBox(
+                              width: 160.0,
+                            ),
                             Icon(
                               Icons.navigate_next_outlined,
                               color: Color(0xFF3FC979),
@@ -178,7 +182,9 @@ class ProfileScreen extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 20.0, color: Colors.black),
                             ),
-                            SizedBox(width: 165.0,),
+                            SizedBox(
+                              width: 165.0,
+                            ),
                             Icon(
                               Icons.navigate_next_outlined,
                               color: Color(0xFF3FC979),
@@ -211,7 +217,9 @@ class ProfileScreen extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 20.0, color: Colors.black),
                             ),
-                            SizedBox(width: 175.0, ),
+                            SizedBox(
+                              width: 175.0,
+                            ),
                             Icon(
                               Icons.navigate_next_outlined,
                               color: Color(0xFF3FC979),
@@ -244,7 +252,9 @@ class ProfileScreen extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 20.0, color: Colors.black),
                             ),
-                            SizedBox(width: 210.0,),
+                            SizedBox(
+                              width: 210.0,
+                            ),
                             Icon(
                               Icons.navigate_next_outlined,
                               color: Color(0xFF3FC979),
@@ -262,7 +272,6 @@ class ProfileScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-
                     ],
                   ),
                 ),
