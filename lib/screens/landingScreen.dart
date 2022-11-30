@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../screens/registerScreen.dart';
 import '../const/colors.dart';
@@ -12,15 +11,23 @@ class LandingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color(0xFF3FC979),
         body: Container(
           width: Helper.getScreenWidth(context),
           height: Helper.getScreenHeight(context),
           child: Stack(
             children: [
+              Container(
+                margin: const EdgeInsets.only(top: 200.0, left: 120.0),
+                // alignment: Alignment.center,
+                child: Image.asset(
+                  Helper.getAssetName("logo.png", "virtual"),
+                ),
+              ),
               Align(
                 alignment: Alignment.center,
                 child: Image.asset(
-                  Helper.getAssetName("MealMonkeyLogo.png", "virtual"),
+                  Helper.getAssetName("pasta.png", "real"),
                 ),
               ),
               Align(
@@ -31,13 +38,17 @@ class LandingScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: [
-                      Flexible(
+                      const Flexible(
                         child: Text(
-                          "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep",
+                          "Food Ordering APP",
                           textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 33.0),
                         ),
                       ),
-                      Spacer(
+                      const Spacer(
                         flex: 2,
                       ),
                       SizedBox(
@@ -45,12 +56,13 @@ class LandingScreen extends StatelessWidget {
                         height: 50,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
+                            Navigator.of(context)
+                                .pushReplacementNamed(LoginScreen.routeName);
                           },
-                          child: Text("Login"),
+                          child: const Text("Login"),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       SizedBox(
@@ -59,23 +71,24 @@ class LandingScreen extends StatelessWidget {
                         child: ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor:
-                            MaterialStateProperty.all(Colors.white),
+                                MaterialStateProperty.all(Colors.white),
                             foregroundColor:
-                            MaterialStateProperty.all(AppColor.orange),
+                                MaterialStateProperty.all(AppColor.orange),
                             shape: MaterialStateProperty.all(
-                              StadiumBorder(
-                                side:
-                                BorderSide(color: AppColor.orange, width: 1.5),
+                              const StadiumBorder(
+                                side: BorderSide(
+                                    color: AppColor.orange, width: 1.5),
                               ),
                             ),
                           ),
                           onPressed: () {
-                            Navigator.of(context).pushReplacementNamed(RegisterScreen.routeName);
+                            Navigator.of(context)
+                                .pushReplacementNamed(RegisterScreen.routeName);
                           },
-                          child: Text("Create an Account"),
+                          child: const Text("Create an Account"),
                         ),
                       ),
-                      Spacer(),
+                      const Spacer(),
                     ],
                   ),
                 ),
@@ -85,4 +98,3 @@ class LandingScreen extends StatelessWidget {
         ));
   }
 }
-

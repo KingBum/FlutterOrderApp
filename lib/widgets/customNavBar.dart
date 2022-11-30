@@ -131,7 +131,7 @@ class CustomNavBar extends StatelessWidget {
                             Helper.getAssetName("menu.png", "virtual"),
                           ),
                           more
-                              ? Text("Profile",
+                              ? Text("More",
                               style: TextStyle(color: AppColor.orange))
                               : Text("More"),
                         ],
