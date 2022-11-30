@@ -565,8 +565,7 @@ class CheckoutScreen extends StatelessWidget {
           Positioned(
             bottom: 0,
             left: 0,
-            child: CustomNavBar( home: false, more: false, profile: false, offer: false, menu: false,
-            ),
+            child: CustomNavBar(home: false, more: false, profile: false, offer: false, menu: false,),
           ),
         ],
       ),

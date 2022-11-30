@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../const/colors.dart';
 import '../utils/helper.dart';
 import '../widgets/customNavBar.dart';
-import '../widgets/customTextInput.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
