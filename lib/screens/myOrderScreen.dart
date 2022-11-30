@@ -12,7 +12,7 @@ class MyOrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       body: Stack(
         children: [
           SafeArea(
@@ -291,7 +291,8 @@ class MyOrderScreen extends StatelessWidget {
           Positioned(
             bottom: 0,
             left: 0,
-            child: CustomNavBar(home: false, more: false, profile: false, offer: false, menu: false,
+            child: CustomNavBar(
+              home: false, more: false, profile: false, offer: false, menu: false,
             ),
           ),
         ],
