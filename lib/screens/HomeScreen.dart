@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/screens/ListViewPage.dart';
 
 import '../const/colors.dart';
 import '../utils/helper.dart';
@@ -87,7 +88,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           "Popular Restaurants",
                           style: Helper.getTheme(context).headline5,
                         ),
-                        TextButton(onPressed: () {}, child: Text("View all"))
+                        TextButton(onPressed: () {
+                          Navigator.of(context)
+                              .pushReplacementNamed(ListViewPage.routeName);
+                        }, child: Text("View all"))
                       ],
                     ),
                   ),

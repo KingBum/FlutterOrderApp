@@ -165,14 +165,21 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> login() async{
     if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
+      //https://reqres.in/api/login
+      //https://json-app-coffee.herokuapp.com/api/auth/login
+      // "email": "eve.holt@reqres.in",
+      // "password": "cityslicka"
       var res = await http.post(Uri.parse("https://reqres.in/api/login"), body: ({
         'email' : emailController.text,
         'password' : passwordController.text
       }));
+      // print(res.statusCode);
+      // print(emailController.text);
+      // print(passwordController.text);
       if(res.statusCode == 200){
         Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
       }else{
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Black Field Not Allowed')));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Có gì đó sai sai')));
       }
     }else{
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Black Field Not Allowed')));

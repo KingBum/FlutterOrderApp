@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/screens/ListViewPage.dart';
 import './screens/aboutScreen.dart';
 import './screens/changeAddressScreen.dart';
 import './screens/checkoutScreen.dart';
@@ -81,7 +82,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const LoginScreen(),
+      home: const SplashScreen(),
       routes: {
         LandingScreen.routeName: (context) => LandingScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
@@ -104,6 +105,7 @@ class MyApp extends StatelessWidget {
         MenuScreen.routeName: (context) => MenuScreen(),
         MoreScreen.routeName: (context) => MoreScreen(),
         OfferScreen.routeName: (context) => OfferScreen(),
+        ListViewPage.routeName: (context) => ListViewPage(),
       },
     );
   }
