@@ -3,9 +3,15 @@ import '../const/colors.dart';
 import '../utils/helper.dart';
 import '../widgets/customNavBar.dart';
 
-class OfferScreen extends StatelessWidget {
+class OfferScreen extends StatefulWidget {
   const OfferScreen({Key? key}) : super(key: key);
   static const routeName = "/offerScreen";
+
+  @override
+  State<OfferScreen> createState() => _OfferScreenState();
+}
+
+class _OfferScreenState extends State<OfferScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -13,80 +19,91 @@ class OfferScreen extends StatelessWidget {
       body: Stack(
         children: [
           SafeArea(
-            child: Container(
-              height: Helper.getScreenHeight(context),
-              width: Helper.getScreenWidth(context),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Latest Offers",
-                            style: Helper.getTheme(context).headline5,
-                          ),
-                          Image.asset(
-                            Helper.getAssetName("cart.png", "virtual"),
-                          ),
-                        ],
+            child: Padding(
+              padding: const EdgeInsets.only(top: 30.0),
+              child: Container(
+                height: Helper.getScreenHeight(context),
+                width: Helper.getScreenWidth(context),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Your Cart",
+                              style: Helper.getTheme(context).headline5,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(
-                        children: [Text("Find discounts, Offer special")],
+                      SizedBox(
+                        height: 10,
                       ),
-                    ),
-                    SizedBox(
-                      height: 40,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            height: 30,
-                            width: Helper.getScreenWidth(context) * 0.4,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("Check Offers")),
-                          ),
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Row(
+                          children: [Text("Find discounts, Offer special")],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    OfferCard(
-                      image: Image.asset(
-                        Helper.getAssetName("breakfast.jpg", "real"),
-                        fit: BoxFit.cover,
+                      SizedBox(
+                        height: 40,
                       ),
-                      name: "Cafe de Noires",
-                    ),
-                    OfferCard(
-                      image: Image.asset(
-                        Helper.getAssetName("western2.jpg", "real"),
-                        fit: BoxFit.cover,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              height: 30,
+                              width: Helper.getScreenWidth(context) * 0.4,
+                              child: ElevatedButton(
+                                  onPressed: () {}, child: Text("Pending Items")),
+                            ),
+                            SizedBox(width: 30,),
+                            SizedBox(
+                              height: 30,
+                              width: Helper.getScreenWidth(context) * 0.4,
+                              child: ElevatedButton(
+                                  onPressed: () {}, child: Text("Ongoing")),
+                            ),
+                          ],
+                        ),
                       ),
-                      name: "Isso",
-                    ),
-                    OfferCard(
-                      image: Image.asset(
-                        Helper.getAssetName("coffee3.jpg", "real"),
-                        fit: BoxFit.cover,
+                      SizedBox(
+                        height: 30,
                       ),
-                      name: "Cafe Beans",
-                    ),
-                    SizedBox(
-                      height: 100,
-                    ),
-                  ],
+                      OfferCard(
+                        image: Image.asset(
+                          Helper.getAssetName("breakfast.jpg", "real"),
+                          fit: BoxFit.cover,
+                        ),
+                        name: "Cafe de Noires",
+                        price: "32",
+                      ),
+                      OfferCard(
+                        image: Image.asset(
+                          Helper.getAssetName("western2.jpg", "real"),
+                          fit: BoxFit.cover,
+                        ),
+                        name: "Isso",
+                        price: "32",
+                      ),
+                      OfferCard(
+                        image: Image.asset(
+                          Helper.getAssetName("coffee3.jpg", "real"),
+                          fit: BoxFit.cover,
+                        ),
+                        name: "Cafe Beans",
+                        price: "32",
+                      ),
+                      SizedBox(
+                        height: 100,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -104,79 +121,134 @@ class OfferScreen extends StatelessWidget {
   }
 }
 
-class OfferCard extends StatelessWidget {
+class OfferCard extends StatefulWidget {
   const OfferCard({
     Key? key,
     required String name,
+    required String price,
     required Image image,
   })  : _image = image,
         _name = name,
+        _price = price,
         super(key: key);
 
   final String _name;
+  final String _price;
   final Image _image;
 
   @override
+  State<OfferCard> createState() => _OfferCardState();
+}
+
+class _OfferCardState extends State<OfferCard> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 300,
-      width: double.infinity,
-      child: Column(
-        children: [
-          SizedBox(height: 200, width: double.infinity, child: _image),
-          SizedBox(
-            height: 10,
+    int _counter = 3;
+    void _incrementCounter() {
+      setState(() {
+        _counter++;
+      });
+    }
+    void _decrementCounter() {
+      setState(() {
+        _counter--;
+      });
+    }
+    return Padding(
+      padding: const EdgeInsets.only(top: 10, right: 20, left: 20),
+      child: Container(
+        alignment: Alignment.center,
+        height: Helper.getScreenHeight(context)/5,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          border: Border.all(width: 1.0),
+          borderRadius: BorderRadius.all(
+              Radius.circular(10.0) //                 <--- border radius here
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Row(
-              children: [
-                Text(
-                  _name,
-                  style: Helper.getTheme(context)
-                      .headline4
-                      ?.copyWith(color: AppColor.primary),
-                )
-              ],
-            ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(height: 50, width: 50, child: widget._image),
+                      Column(
+                        children: [
+                          Text(
+                            widget._name,
+                            style: Helper.getTheme(context)
+                                .headline4
+                                ?.copyWith(color: AppColor.primary),
+                          ),
+                          Text(
+                            "\$${widget._price}/pack",
+                            style: Helper.getTheme(context)
+                                .headline4
+                                ?.copyWith(color: AppColor.secondary),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          Icons.remove_circle_outline,
+                        ), onPressed: (){_decrementCounter();},
+                      ),
+                      Text(
+                        '$_counter',
+                        style: TextStyle(
+                          color: AppColor
+                              .orange,
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.add_circle_outline,
+                        ), onPressed: (){_incrementCounter();},
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              const Divider(
+                thickness: 0.2, // thickness of the line
+                indent: 20, // empty space to the leading edge of divider.
+                endIndent: 20, // empty space to the trailing edge of the divider.
+                color: Colors.black, // The color to use when painting the line.
+                height: 20, // The divider's height extent.
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Remove",
+                    style: Helper.getTheme(context)
+                        .headline4
+                        ?.copyWith(color: AppColor.orange),
+                  ),
+                  Text(
+                    "",
+                    style: Helper.getTheme(context)
+                        .headline4
+                        ?.copyWith(color: AppColor.primary),
+                  ),
+                ],
+              )
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Row(
-              children: [
-                Image.asset(
-                  Helper.getAssetName("star_filled.png", "virtual"),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  "4.9",
-                  style: TextStyle(
-                    color: AppColor.orange,
-                  ),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text("(124 ratings) Cafe"),
-                SizedBox(
-                  width: 5,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 5),
-                  child: Text(
-                    ".",
-                    style: TextStyle(
-                        color: AppColor.orange, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Text(" Western Food"),
-              ],
-            ),
-          )
-        ],
+        ),
       ),
     );
   }
 }
+

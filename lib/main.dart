@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/screens/aboutScreen.dart';
-import 'package:untitled1/screens/changeAddressScreen.dart';
-import 'package:untitled1/screens/checkoutScreen.dart';
-import 'package:untitled1/screens/dessertScreen.dart';
-import 'package:untitled1/screens/inboxScreen.dart';
-import 'package:untitled1/screens/menuScreen.dart';
-import 'package:untitled1/screens/moreScreen.dart';
-import 'package:untitled1/screens/myOrderScreen.dart';
-import 'package:untitled1/screens/notificationScreen.dart';
-import 'package:untitled1/screens/offerScreen.dart';
-import 'package:untitled1/screens/paymentScreen.dart';
-import 'package:untitled1/screens/profileScreen.dart';
+import './screens/aboutScreen.dart';
+import './screens/changeAddressScreen.dart';
+import './screens/checkoutScreen.dart';
+import './screens/dessertScreen.dart';
+import './screens/inboxScreen.dart';
+import './screens/menuScreen.dart';
+import './screens/moreScreen.dart';
+import './screens/myOrderScreen.dart';
+import './screens/notificationScreen.dart';
+import './screens/offerScreen.dart';
+import './screens/paymentScreen.dart';
+import './screens/profileScreen.dart';
 import './screens/individualItem.dart';
 import './screens/HomeScreen.dart';
 import './screens/introScreen.dart';
@@ -23,7 +23,7 @@ import './screens/splashScreen.dart';
 import './screens/loginScreen.dart';
 import './const/colors.dart';
 
-void main() {
+void main()  {
   runApp(const MyApp());
 }
 
@@ -81,7 +81,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const SplashScreen(),
+      home: const LoginScreen(),
       routes: {
         LandingScreen.routeName: (context) => LandingScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),

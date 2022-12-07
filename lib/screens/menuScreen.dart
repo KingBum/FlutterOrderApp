@@ -28,9 +28,6 @@ class MenuScreen extends StatelessWidget {
                         "Menu",
                         style: Helper.getTheme(context).headline5,
                       ),
-                      Image.asset(
-                        Helper.getAssetName("cart.png", "virtual"),
-                      )
                     ],
                   ),
                 ),

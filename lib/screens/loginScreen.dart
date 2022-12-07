@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/screens/HomeScreen.dart';
 import '../screens/forgotPwScreen.dart';
 import '../const/colors.dart';
 import '../screens/registerScreen.dart';
 import '../utils/helper.dart';
 import '../widgets/customTextInput.dart';
+import 'package:http/http.dart' as http;
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
   static const routeName = "/loginScreen";
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +41,13 @@ class LoginScreen extends StatelessWidget {
                 Spacer(),
                 Text('Add your details to login'),
                 Spacer(),
-                CustomTextInput(
+                CustomTextInput1(
+                  controller: emailController,
                   hintText: "Your email",
                 ),
                 Spacer(),
-                CustomTextInput(
+                CustomTextInput1(
+                  controller: passwordController,
                   hintText: "password",
                 ),
                 Spacer(),
@@ -42,7 +55,9 @@ class LoginScreen extends StatelessWidget {
                   height: 50,
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      login();
+                    },
                     child: Text("Login"),
                   ),
                 ),
@@ -146,5 +161,21 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> login() async{
+    if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
+      var res = await http.post(Uri.parse("https://reqres.in/api/login"), body: ({
+        'email' : emailController.text,
+        'password' : passwordController.text
+      }));
+      if(res.statusCode == 200){
+        Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+      }else{
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Black Field Not Allowed')));
+      }
+    }else{
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Black Field Not Allowed')));
+    }
   }
 }

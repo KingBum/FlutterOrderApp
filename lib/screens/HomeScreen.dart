@@ -4,12 +4,10 @@ import '../const/colors.dart';
 import '../utils/helper.dart';
 import '../widgets/customNavBar.dart';
 import '../screens/individualItem.dart';
-import '../widgets/searchBar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
   static const routeName = "/homeScreen";
-
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -36,11 +34,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "Good morning Akila!",
-                          style: Helper.getTheme(context).headline5,
-                        ),
-                        Image.asset(Helper.getAssetName("cart.png", "virtual"))
+                        Image.asset(
+                            Helper.getAssetName("Navbar.png", "virtual")),
+                        Image.asset(
+                            Helper.getAssetName("Search.png", "virtual"))
                       ],
                     ),
                   ),
@@ -51,20 +48,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
                     ),
-                    child: Text("Deilivering to"),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
                     child: DropdownButtonHideUnderline(
                       child: SizedBox(
-                        width: 250,
+                        width: 150,
                         child: DropdownButton(
                           value: "current location",
                           items: [
                             DropdownMenuItem(
-                              child: Text("Current Location"),
+                              child: Text("Work Place"),
                               value: "current location",
                             ),
                           ],
@@ -78,63 +69,88 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    child: Text("Choose your delicous meal"),
+                  ),
                   SizedBox(
                     height: 20,
                   ),
-                  SearchBar(
-                    title: "Search Food",
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Popular Restaurants",
+                          style: Helper.getTheme(context).headline5,
+                        ),
+                        TextButton(onPressed: () {}, child: Text("View all"))
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
+
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.only(
                       left: 20,
+                      right: 20,
                     ),
+
                     child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          CategoryCard(
-                            image: Image.asset(
-                              Helper.getAssetName("hamburger2.jpg", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                            name: "Offers",
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          CategoryCard(
-                            image: Image.asset(
-                              Helper.getAssetName("rice2.jpg", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                            name: "Sri Lankan",
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          CategoryCard(
-                            image: Image.asset(
-                              Helper.getAssetName("fruit.jpg", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                            name: "Italian",
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          CategoryCard(
-                            image: Image.asset(
-                              Helper.getAssetName("rice.jpg", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                            name: "Indian",
-                          ),
-                          SizedBox(
-                            width: 10,
+                      child: Column(
+                        children: <Widget>[
+                          Wrap(
+                            spacing: 20.0, // gap between adjacent chips
+                            runSpacing: 20.0, // gap between lines
+                            children: <Widget>[
+                              CategoryCard(
+                                image: Image.asset(
+                                  Helper.getAssetName("hamburger2.jpg", "real"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Offers",
+                                price: "50",
+                              ),
+                              CategoryCard(
+                                image: Image.asset(
+                                  Helper.getAssetName("rice2.jpg", "real"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Sri Lankan",
+                                price: "70",
+                              ),
+
+                              CategoryCard(
+                                image: Image.asset(
+                                  Helper.getAssetName("pizza.jpg", "real"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Spiza",
+                                price: "70",
+                              ),
+                              CategoryCard(
+                                image: Image.asset(
+                                  Helper.getAssetName("pizza2.jpg", "real"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Pizza",
+                                price: "70",
+                              ),
+                              CategoryCard(
+                                image: Image.asset(
+                                  Helper.getAssetName("pizza3.jpg", "real"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Pizza KB",
+                                price: "90",
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -159,131 +175,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     height: 20,
                   ),
-                  RestaurantCard(
-                    image: Image.asset(
-                      Helper.getAssetName("pizza2.jpg", "real"),
-                      fit: BoxFit.cover,
-                    ),
-                    name: "Minute by tuk tuk",
-                  ),
-                  RestaurantCard(
-                    image: Image.asset(
-                      Helper.getAssetName("breakfast.jpg", "real"),
-                      fit: BoxFit.cover,
-                    ),
-                    name: "Cafe de Noir",
-                  ),
-                  RestaurantCard(
-                    image: Image.asset(
-                      Helper.getAssetName("bakery.jpg", "real"),
-                      fit: BoxFit.cover,
-                    ),
-                    name: "Bakes by Tella",
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Most Popular",
-                          style: Helper.getTheme(context).headline5,
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text("View all"),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    height: 250,
-                    width: double.infinity,
-                    padding: const EdgeInsets.only(left: 20),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          MostPopularCard(
-                            image: Image.asset(
-                              Helper.getAssetName("pizza4.jpg", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                            name: "Cafe De Bambaa",
-                          ),
-                          SizedBox(
-                            width: 30,
-                          ),
-                          MostPopularCard(
-                            name: "Burger by Bella",
-                            image: Image.asset(
-                              Helper.getAssetName("dessert3.jpg", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Recent Items",
-                          style: Helper.getTheme(context).headline5,
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text("View all"),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
-                    child: Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.of(context)
-                                .pushNamed(DeltailItem.routeName);
-                          },
-                          child: RecentItemCard(
-                            image: Image.asset(
-                              Helper.getAssetName("pizza3.jpg", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                            name: "Mulberry Pizza by Josh",
-                          ),
-                        ),
-                        RecentItemCard(
-                            image: Image.asset(
-                              Helper.getAssetName("coffee.jpg", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                            name: "Barita"),
-                        RecentItemCard(
-                            image: Image.asset(
-                              Helper.getAssetName("pizza.jpg", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                            name: "Pizza Rush Hour"),
-                      ],
-                    ),
-                  )
                 ],
               ),
             ),
@@ -292,7 +183,11 @@ class _HomeScreenState extends State<HomeScreen> {
               bottom: 0,
               left: 0,
               child: CustomNavBar(
-                home: true, more: false, profile: false, offer: false, menu: false,
+                home: true,
+                more: false,
+                profile: false,
+                offer: false,
+                menu: false,
               )),
         ],
       ),
@@ -300,296 +195,117 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class RecentItemCard extends StatelessWidget {
-  const RecentItemCard({
-    Key? key,
-    required String name,
-    required Image image,
-  })  : _name = name,
-        _image = image,
-        super(key: key);
 
-  final String _name;
-  final Image _image;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Container(
-            width: 80,
-            height: 80,
-            child: _image,
-          ),
-        ),
-        SizedBox(
-          width: 10,
-        ),
-        Expanded(
-          child: Container(
-            height: 100,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  _name,
-                  style: Helper.getTheme(context)
-                      .headline4!
-                      .copyWith(color: AppColor.primary),
-                ),
-                Row(
-                  children: [
-                    Text("Cafe"),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5.0),
-                      child: Text(
-                        ".",
-                        style: TextStyle(
-                          color: AppColor.orange,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text("Western Food"),
-                    SizedBox(
-                      width: 20,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Image.asset(
-                      Helper.getAssetName("star_filled.png", "virtual"),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      "4.9",
-                      style: TextStyle(
-                        color: AppColor.orange,
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    Text('(124) Ratings')
-                  ],
-                )
-              ],
-            ),
-          ),
-        )
-      ],
-    );
-  }
-}
-
-class MostPopularCard extends StatelessWidget {
-  const MostPopularCard({
-    Key? key,
-    required String name,
-    required Image image,
-  })  : _name = name,
-        _image = image,
-        super(key: key);
-
-  final String _name;
-  final Image _image;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Container(
-            width: 300,
-            height: 200,
-            child: _image,
-          ),
-        ),
-        SizedBox(height: 10),
-        Text(
-          _name,
-          style: Helper.getTheme(context)
-              .headline4
-              ?.copyWith(color: AppColor.primary),
-        ),
-        Row(
-          children: [
-            Text("Cafe"),
-            SizedBox(
-              width: 5,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 5.0),
-              child: Text(
-                ".",
-                style: TextStyle(
-                  color: AppColor.orange,
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Text("Western Food"),
-            SizedBox(
-              width: 20,
-            ),
-            Image.asset(
-              Helper.getAssetName("star_filled.png", "virtual"),
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Text(
-              "4.9",
-              style: TextStyle(
-                color: AppColor.orange,
-              ),
-            )
-          ],
-        )
-      ],
-    );
-  }
-}
-
-class RestaurantCard extends StatelessWidget {
-  const RestaurantCard({
-    Key? key,
-    required String name,
-    required Image image,
-  })  : _image = image,
+class CategoryCard extends StatelessWidget {
+  const CategoryCard(
+      {Key? key,
+      required Image image,
+      required String name,
+      required String price})
+      : _image = image,
         _name = name,
+        _price = price,
         super(key: key);
 
   final String _name;
   final Image _image;
+  final String _price;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 270,
-      width: double.infinity,
+    return Container(
+      width: 200,
+      height: MediaQuery.of(context).size.height/2.5,
+      decoration: BoxDecoration(
+        border: Border.all(width: 3.0),
+        borderRadius: BorderRadius.all(
+            Radius.circular(20.0) //                 <--- border radius here
+            ),
+      ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 200, width: double.infinity, child: _image),
           SizedBox(
-            height: 10,
+            height: 20,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 20,
             ),
-            child: Column(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    Text(
-                      _name,
-                      style: Helper.getTheme(context).headline3,
-                    ),
-                  ],
+                Icon(
+                  Icons.radio_button_checked,
+                  color: AppColor.orange,
                 ),
-                SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  children: [
-                    Image.asset(
-                      Helper.getAssetName("star_filled.png", "virtual"),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      "4.9",
-                      style: TextStyle(
-                        color: AppColor.orange,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text("(124 ratings)"),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text("Cafe"),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5.0),
-                      child: Text(
-                        ".",
-                        style: TextStyle(
-                          color: AppColor.orange,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text("Western Food"),
-                  ],
+                Icon(
+                  Icons.favorite,
+                  color: AppColor.secondary,
                 ),
               ],
             ),
-          )
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                width: 160,
+                height: 160,
+                child: _image,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            child: Text(
+              _name,
+              style: Helper.getTheme(context)
+                  .headline4
+                  ?.copyWith(color: AppColor.primary, fontSize: 16),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '\$$_price',
+                  style: Helper.getTheme(context)
+                      .headline4
+                      ?.copyWith(color: AppColor.orange, fontSize: 24),
+                ),
+                SizedBox(width: 50),
+                Icon(
+                  Icons.add_circle_outline,
+                  color: AppColor.orange,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
         ],
       ),
-    );
-  }
-}
-
-class CategoryCard extends StatelessWidget {
-  const CategoryCard({
-    Key? key,
-    required Image image,
-    required String name,
-  })  : _image = image,
-        _name = name,
-        super(key: key);
-
-  final String _name;
-  final Image _image;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Container(
-            width: 100,
-            height: 100,
-            child: _image,
-          ),
-        ),
-        SizedBox(
-          height: 5,
-        ),
-        Text(
-          _name,
-          style: Helper.getTheme(context)
-              .headline4
-              ?.copyWith(color: AppColor.primary, fontSize: 16),
-        ),
-      ],
     );
   }
 }
