@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:untitled1/screens/individualItem.dart';
 import '../models/Food.dart';
 
 import '../const/colors.dart';
@@ -19,8 +20,8 @@ class ListViewPage extends StatefulWidget {
 class _ListViewPageState extends State<ListViewPage> {
   List<Food> postList = [] ;
 
-  Future<List<Food>> getFoodData ()async{
-    final resposne = await http.get(Uri.parse('https://json-app-coffee.herokuapp.com/api/products')) ;
+  Future<List<Food>> getFoodData () async{
+    final resposne = await http.get(Uri.parse('https://json-app-coffee.herokuapp.com/api/products/')) ;
     var data = jsonDecode(resposne.body.toString());
     if(resposne.statusCode == 200){
       postList.clear();
@@ -38,6 +39,20 @@ class _ListViewPageState extends State<ListViewPage> {
     return Scaffold(
         body: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset(
+                      Helper.getAssetName("Navbar.png", "virtual")),
+                  Image.asset(
+                      Helper.getAssetName("Search.png", "virtual"))
+                ],
+              ),
+            ),
             Expanded(
               child: FutureBuilder(
                 future: getFoodData(),
@@ -49,7 +64,7 @@ class _ListViewPageState extends State<ListViewPage> {
                       return Card(
                         child: Container(
                           width: 200,
-                          height: MediaQuery.of(context).size.height/2.5,
+                          height: MediaQuery.of(context).size.height/2,
                           decoration: BoxDecoration(
                             border: Border.all(width: 3.0),
                             borderRadius: BorderRadius.all(
@@ -90,10 +105,19 @@ class _ListViewPageState extends State<ListViewPage> {
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 160,
-                                    child: Image.network(postList[index].img.toString()),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      // Navigator.of(context)
+                                      //     .pushReplacementNamed(DeltailItem.routeName);
+                                      Navigator.push(context, new MaterialPageRoute(builder: (context) =>
+                                        DeltailItem(postList[index])
+                                      ));
+                                    },
+                                    child: SizedBox(
+                                      width: double.infinity,
+                                      height: 160,
+                                      child: Image.network(postList[index].img.toString()),
+                                    ),
                                   ),
                                 ),
                               ),

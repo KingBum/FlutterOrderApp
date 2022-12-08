@@ -4,7 +4,6 @@ import 'package:untitled1/screens/ListViewPage.dart';
 import '../const/colors.dart';
 import '../utils/helper.dart';
 import '../widgets/customNavBar.dart';
-import '../screens/individualItem.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -219,7 +218,7 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 200,
-      height: MediaQuery.of(context).size.height/2.5,
+      height: MediaQuery.of(context).size.height/2.0,
       decoration: BoxDecoration(
         border: Border.all(width: 3.0),
         borderRadius: BorderRadius.all(

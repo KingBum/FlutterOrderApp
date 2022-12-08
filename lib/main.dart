@@ -92,7 +92,6 @@ class MyApp extends StatelessWidget {
         NewPwScreen.routeName: (context) => NewPwScreen(),
         IntroScreen.routeName: (context) => IntroScreen(),
         HomeScreen.routeName: (context) => HomeScreen(),
-        DeltailItem.routeName: (context) => DeltailItem(),
         ProfileScreen.routeName: (context) => ProfileScreen(),
         AboutScreen.routeName: (context) => AboutScreen(),
         PaymentScreen.routeName: (context) => PaymentScreen(),

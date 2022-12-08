@@ -173,7 +173,7 @@ class _LoginScreenState extends State<LoginScreen> {
         'email' : emailController.text,
         'password' : passwordController.text
       }));
-      // print(res.statusCode);
+      print(res.statusCode);
       // print(emailController.text);
       // print(passwordController.text);
       if(res.statusCode == 200){

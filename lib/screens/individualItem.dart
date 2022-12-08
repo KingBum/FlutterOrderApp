@@ -1,14 +1,35 @@
 import 'package:flutter/material.dart';
 import '../const/colors.dart';
+import '../models/Food.dart';
 import '../utils/helper.dart';
 import '../widgets/customNavBar.dart';
 
-class DeltailItem extends StatelessWidget {
-  const DeltailItem({Key? key}) : super(key: key);
+
+class DeltailItem extends StatefulWidget {
+  final Food item;
+  const DeltailItem(this.item,{Key? key}) : super(key: key);
   static const routeName = "/deltailItem";
 
   @override
+  State<DeltailItem> createState() => _DeltailItemState();
+}
+
+class _DeltailItemState extends State<DeltailItem> {
+  var _counter =0;
+  Future<void> _incrementCounter() async {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  Future<void> _decrementCounter() async {
+    setState(() {
+      _counter--;
+    });
+  }
+  @override
   Widget build(BuildContext context) {
+    var total = widget.item.price;
     return Scaffold(
       body: Stack(
         children: [
@@ -22,10 +43,7 @@ class DeltailItem extends StatelessWidget {
                         SizedBox(
                           height: Helper.getScreenHeight(context) * 0.5,
                           width: Helper.getScreenWidth(context),
-                          child: Image.asset(
-                            Helper.getAssetName("pizza3.jpg", "real"),
-                            fit: BoxFit.cover,
-                          ),
+                          child: Image.network(widget.item.img.toString(), fit:  BoxFit.cover,),
                         ),
                         Container(
                           height: Helper.getScreenHeight(context) * 0.5,
@@ -101,7 +119,7 @@ class DeltailItem extends StatelessWidget {
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 20),
                                           child: Text(
-                                            "Tandoori Chicken Pizza",
+                                            widget.item.title.toString(),
                                             style: Helper.getTheme(context)
                                                 .headline5,
                                           ),
@@ -182,7 +200,7 @@ class DeltailItem extends StatelessWidget {
                                                       height: 20,
                                                     ),
                                                     Text(
-                                                      "Rs. 750",
+                                                      '\$'+ widget.item.price.toString(),
                                                       style: TextStyle(
                                                         color: AppColor.primary,
                                                         fontSize: 30,
@@ -216,7 +234,7 @@ class DeltailItem extends StatelessWidget {
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 20),
                                           child: Text(
-                                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare leo non mollis id cursus. Eu euismod faucibus in leo malesuada"),
+                                              widget.item.desc.toString()),
                                         ),
                                         SizedBox(
                                           height: 20,
@@ -360,7 +378,7 @@ class DeltailItem extends StatelessWidget {
                                                           elevation:
                                                           MaterialStateProperty
                                                               .all(5.0)),
-                                                      onPressed: () {},
+                                                      onPressed: () {_decrementCounter();},
                                                       child: Text("-"),
                                                     ),
                                                     SizedBox(
@@ -383,7 +401,7 @@ class DeltailItem extends StatelessWidget {
                                                             .center,
                                                         children: [
                                                           Text(
-                                                            "2",
+                                                            "$_counter",
                                                             style: TextStyle(
                                                               color: AppColor
                                                                   .orange,
@@ -400,7 +418,7 @@ class DeltailItem extends StatelessWidget {
                                                           elevation:
                                                           MaterialStateProperty
                                                               .all(5.0)),
-                                                      onPressed: () {},
+                                                      onPressed: () {_incrementCounter();},
                                                       child: Text("+"),
                                                     ),
                                                   ],
@@ -487,7 +505,7 @@ class DeltailItem extends StatelessWidget {
                                                           height: 10,
                                                         ),
                                                         Text(
-                                                          "LKR 1500",
+                                                          "${_counter * total! }",
                                                           style: TextStyle(
                                                             color: AppColor
                                                                 .primary,
